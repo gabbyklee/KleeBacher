@@ -2,12 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.0] - 2024-12-XX
+## [0.2.0] - 2025-10-17
 
 ### Added
 - Migrated from Preact to React
 - Parse Server backend integration via Back4App
-- BookModel with full CRUD operations
+- BookModel with CRUD operations
 - Parse initialization configuration
 - Asynchronous data loading with loading states
 - Error handling for all Parse queries
