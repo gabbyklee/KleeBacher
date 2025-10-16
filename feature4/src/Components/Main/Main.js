@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
-import { getFeaturedBooks } from '../../Services/FeaturedBooks';
+import BookModel from '../../Services/Models/BookModel';
 import MainList from './MainList';
 import SearchAndFilter from '../SearchAndFilter/SearchAndFilter';
 
 const Main = () => {
-  // fbooks data passed down
   const [fbooks, setFBooks] = useState([]);
   const [displayedBooks, setDisplayedBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    getFeaturedBooks()
-      .then((fbooks) => {
-        setFBooks(fbooks);
-        setDisplayedBooks(fbooks); // Initially show all books
+    BookModel.getAllBooks()
+      .then((books) => {
+        console.log('Books loaded from Parse:', books);
+        setFBooks(books);
+        setDisplayedBooks(books);
         setLoading(false);
       })
       .catch((error) => {
@@ -23,7 +23,6 @@ const Main = () => {
       });
   }, []);
 
-  // Function to handle filtered books from SearchAndFilter component
   const handleFilteredBooks = (filtered) => {
     setDisplayedBooks(filtered);
   };
@@ -31,7 +30,7 @@ const Main = () => {
   if (loading) {
     return (
       <div className="main-content" style={{ textAlign: 'center', color: 'white' }}>
-        <h2>Loading books...</h2>
+        <h2>Loading books from Parse database...</h2>
       </div>
     );
   }
@@ -44,7 +43,6 @@ const Main = () => {
           <p>Discover, review, and share your favorite books with a community of passionate readers</p>
         </section>
 
-        {/* Search and Filter Component */}
         <SearchAndFilter 
           books={fbooks} 
           onFilteredBooksChange={handleFilteredBooks}
