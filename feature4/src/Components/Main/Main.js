@@ -1,29 +1,64 @@
-import React, { useState, useEffect } from "react";
-import MainList from "./MainList";
+import { useEffect, useState } from 'react';
+import { getFeaturedBooks } from '../../Services/FeaturedBooks';
+import MainList from './MainList';
+import SearchAndFilter from '../SearchAndFilter/SearchAndFilter';
 
-/* MAIN MODULE WITH STATEFUL PARENT AND STATELESS CHILD */
 const Main = () => {
-  // const data = useFetch("https://jsonplaceholder.typicode.com/todos/");
-  // console.log("data: ", data);
-  // Variables in the state to hold data
-  //const [lessons, setLessons] = useState([]);
+  // fbooks data passed down
+  const [fbooks, setFBooks] = useState([]);
+  const [displayedBooks, setDisplayedBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // UseEffect to run when the page loads to
-  // obtain async data and render
-  //useEffect(() => {
-    //if (Lessons.collection.length) {
-      //setLessons(Lessons.collection);
-    //} else {
-      //getAllLessons().then((lessons) => {
-        //console.log(lessons);
-        //setLessons(lessons);
-      //});
-    //}
-  //}, []);
+  useEffect(() => {
+    setLoading(true);
+    getFeaturedBooks()
+      .then((fbooks) => {
+        setFBooks(fbooks);
+        setDisplayedBooks(fbooks); // Initially show all books
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error loading books:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  // Function to handle filtered books from SearchAndFilter component
+  const handleFilteredBooks = (filtered) => {
+    setDisplayedBooks(filtered);
+  };
+
+  if (loading) {
+    return (
+      <div className="main-content" style={{ textAlign: 'center', color: 'white' }}>
+        <h2>Loading books...</h2>
+      </div>
+    );
+  }
 
   return (
     <div>
-      This is the main stateful parent component. Need to add MainList.
+      <div className="main-content">
+        <section className="hero-section">
+          <h1>Welcome to Literary Lounge</h1>
+          <p>Discover, review, and share your favorite books with a community of passionate readers</p>
+        </section>
+
+        {/* Search and Filter Component */}
+        <SearchAndFilter 
+          books={fbooks} 
+          onFilteredBooksChange={handleFilteredBooks}
+        />
+
+        <section>
+          <h2 className="section-title">Featured Books</h2>
+          {displayedBooks.length === 0 && fbooks.length > 0 ? (
+            <p className="no-results">No books found matching your filters</p>
+          ) : (
+            <MainList fbooks={displayedBooks} />
+          )}
+        </section>
+      </div>
     </div>
   );
 };
