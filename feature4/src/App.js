@@ -1,10 +1,12 @@
 import './App.css';
-import Components from "./Components/Components.js";
+import Components from './Components/Components';
 import * as Env from "./environments";
 
 function App() {
   return (
-    <Components/>
+    <div className="App">
+      <Components />
+    </div>
   );
 }
 
