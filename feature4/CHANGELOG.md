@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Migrated from Preact to React
 - Parse Server backend integration via Back4App
 - BookModel with CRUD operations
+- ReviewModel with CRUD operations (not implemented in UI yet)
 - Parse initialization configuration
 - Asynchronous data loading with loading states
 - Error handling for all Parse queries
