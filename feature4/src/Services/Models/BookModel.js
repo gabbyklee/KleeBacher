@@ -130,6 +130,57 @@ class BookModel {
       throw error;
     }
   }
+
+  static async addReviewToBook(bookId, reviewId) {
+    const query = new Parse.Query("Book");
+    
+    try {
+      const book = await query.get(bookId);
+      
+      // Add reviewId to the reviews array
+      book.addUnique("reviews", reviewId);
+      
+      await book.save();
+      console.log('Review added to book:', reviewId);
+    } catch (error) {
+      console.error('Error adding review to book:', error);
+      throw error;
+    }
+  }
+  
+  static async getBookWithReviews(bookId) {
+    const query = new Parse.Query("Book");
+    
+    try {
+      const book = await query.get(bookId);
+      const reviewIds = book.get("reviews") || [];
+      
+      // Fetch all review objects
+      const reviewPromises = reviewIds.map(id => {
+        const reviewQuery = new Parse.Query("Review");
+        return reviewQuery.get(id);
+      });
+      
+      const reviews = await Promise.all(reviewPromises);
+      
+      return {
+        id: book.id,
+        title: book.get('title'),
+        author: book.get('author'),
+        genre: book.get('genre'),
+        imageURL: book.get('imageURL'),
+        reviews: reviews.map(r => ({
+          id: r.id,
+          title: r.get('title'),
+          content: r.get('content'),
+          rating: r.get('rating')
+        }))
+      };
+    } catch (error) {
+      console.error('Error fetching book with reviews:', error);
+      throw error;
+    }
+  }
 }
 
 export default BookModel;
