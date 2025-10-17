@@ -1,4 +1,4 @@
-import Parse from '../ParseConfig';
+import Parse from 'parse';
 
 class BookModel {
   // CREATE - Add a new book (for admin use)
