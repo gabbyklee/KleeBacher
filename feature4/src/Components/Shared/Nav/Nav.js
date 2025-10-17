@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// routing with react links
 const Nav = () => {
   return (
     <nav className="navbar">
