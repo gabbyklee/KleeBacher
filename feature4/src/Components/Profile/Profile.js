@@ -1,6 +1,6 @@
 // build in future
 
-export default function Login() {
+export default function Profile() {
   return (
     <section>
       <h1>Welcome to the Profile Component</h1>
