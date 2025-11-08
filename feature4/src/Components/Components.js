@@ -1,5 +1,4 @@
 import Home from "./Home/Home";
-import Login from "./Login/Login";
 import Explore from "./Explore/Explore";
 import Profile from "./Profile/Profile";
 import Nav from "./Shared/Nav/Nav";

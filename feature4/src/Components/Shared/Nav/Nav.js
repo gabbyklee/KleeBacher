@@ -30,7 +30,7 @@ const Nav = () => {
             <li><button onClick={handleLogout}>Logout</button></li>
           </>
         ) : (
-          <li><Link to="/auth/login">Login</Link></li>
+          <li><Link to="/auth">Login</Link></li>
         )}
       </ul>
     </nav>

@@ -1,31 +1,39 @@
-import Parse from 'parse';
+import Parse from "parse";
 
-/**
- * PLACEHOLDER 
- */
+// used in auth register component
+export const createUser = (newUser) => {
+  const user = new Parse.User();
 
-// Placeholder: Always returns false for now
+  user.set("username", newUser.email);
+  user.set("firstName", newUser.firstName);
+  user.set("lastName", newUser.lastName);
+  user.set("password", newUser.password);
+  user.set("email", newUser.email);
+
+  console.log("User: ", user);
+  return user
+    .signUp()
+    .then((newUserSaved) => {
+      return newUserSaved;
+    })
+    .catch((error) => {
+      alert(`Error: ${error.message}`);
+    });
+};
+
+// used in auth login component
+export const loginUser = (currUser) => {
+  return Parse.User.logIn(currUser.email, currUser.password)
+    .then((currUserSaved) => {
+      return currUserSaved;
+    })
+    .catch((error) => {
+      alert(`Error: ${error.message}`);
+    });
+};
+
+
+// used in auth module component
 export const checkUser = () => {
-  console.log("Using placeholder checkUser - always returns false");
-  return false;  // No one is logged in yet
-};
-
-// Placeholder: Not implemented yet
-export const createUser = async (newUser) => {
-  console.log("Placeholder createUser called - not yet implemented");
-  alert("Registration not yet implemented by Student B");
-  return null;
-};
-
-// Placeholder: Not implemented yet
-export const loginUser = async (currUser) => {
-  console.log("Placeholder loginUser called - not yet implemented");
-  alert("Login not yet implemented by Student B");
-  return null;
-};
-
-// Placeholder: Not implemented yet
-export const logoutUser = async () => {
-  console.log("Placeholder logoutUser called - not yet implemented");
-  return { success: true };
+  return Parse.User.current()?.authenticated;
 };

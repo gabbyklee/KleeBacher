@@ -1,0 +1,86 @@
+.auth-form-container {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  max-width: 420px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.auth-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #2a5298;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2a5298;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-color: #2a5298;
+  border-radius: 0.75rem;
+  background-color: white;
+  color: #2a5298;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  background-color: #2a5298;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2563eb;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.auth-form-container p {
+  color: #2a5298;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.toggle-text {
+  margin-top: 1rem;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #2a5298;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #2563eb;
+}
+
+.toggle-btn:active {
+  transform: scale(0.98);
+}
