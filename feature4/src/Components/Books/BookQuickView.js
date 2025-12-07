@@ -132,11 +132,11 @@ const BookQuickView = ({ book, onClose }) => {
         </div>
         
         {/* Book Description */}
-        {book.description && (
+        {(book.description || book.volumeInfo?.description) && (
           <div style={{ marginBottom: "20px" }}>
             <h3>Summary</h3>
             <p style={{ lineHeight: "1.6" }}>
-              {book.description}
+              {book.description || book.volumeInfo?.description}
             </p>
           </div>
         )}
