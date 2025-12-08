@@ -11,9 +11,9 @@ import {
   checkIfFriends
 } from "../../Common/Services/FriendService";
 import Parse from "parse";
-import "./Explore.css";
+import "./Friends.css";
 
-const Explore = () => {
+const Friends = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -135,15 +135,15 @@ const Explore = () => {
           <p>Connect with other readers and share your literary journey</p>
         </section>
         
-        <div className="explore-login-prompt">
+        <div className="friends-login-prompt">
           <h2>Please Log In</h2>
           <p>You need to be logged in to search for friends and manage friend requests.</p>
           
-          <div className="explore-login-buttons">
-            <button onClick={() => navigate("/auth")} className="explore-login-btn login">
+          <div className="friends-login-buttons">
+            <button onClick={() => navigate("/auth")} className="friends-login-btn login">
               Log In
             </button>
-            <button onClick={() => navigate("/auth/register")} className="explore-login-btn register">
+            <button onClick={() => navigate("/auth/register")} className="friends-login-btn register">
               Register
             </button>
           </div>
@@ -160,25 +160,25 @@ const Explore = () => {
       </section>
 
       {/* Tab Navigation */}
-      <div className="explore-tabs">
+      <div className="friends-tabs">
         <button
           onClick={() => setActiveTab("search")}
-          className={`explore-tab-btn ${activeTab === "search" ? "active" : "inactive"}`}
+          className={`friends-tab-btn ${activeTab === "search" ? "active" : "inactive"}`}
         >
           🔍 Search Users
         </button>
         <button
           onClick={() => setActiveTab("requests")}
-          className={`explore-tab-btn ${activeTab === "requests" ? "active" : "inactive"}`}
+          className={`friends-tab-btn ${activeTab === "requests" ? "active" : "inactive"}`}
         >
           📬 Requests
           {friendRequests.length > 0 && (
-            <span className="explore-tab-badge">{friendRequests.length}</span>
+            <span className="friends-tab-badge">{friendRequests.length}</span>
           )}
         </button>
         <button
           onClick={() => setActiveTab("friends")}
-          className={`explore-tab-btn ${activeTab === "friends" ? "active" : "inactive"}`}
+          className={`friends-tab-btn ${activeTab === "friends" ? "active" : "inactive"}`}
         >
           👥 My Friends ({friends.length})
         </button>
@@ -186,7 +186,7 @@ const Explore = () => {
 
       {/* Search Tab */}
       {activeTab === "search" && (
-        <div className="explore-content-container">
+        <div className="friends-content-container">
           <h2>Search for Users</h2>
           
           <input
@@ -194,37 +194,37 @@ const Explore = () => {
             value={searchTerm}
             onChange={handleSearch}
             placeholder="Search by username..."
-            className="explore-search-input"
+            className="friends-search-input"
           />
 
           {searchResults.length > 0 && (
             <div>
               {searchResults.map(user => (
-                <div key={user.id} className="explore-user-card">
-                  <div className="explore-user-info">
+                <div key={user.id} className="friends-user-card">
+                  <div className="friends-user-info">
                     {user.profilePicture ? (
                       <img
                         src={user.profilePicture}
                         alt={user.username}
-                        className="explore-user-avatar"
+                        className="friends-user-avatar"
                       />
                     ) : (
-                      <div className="explore-user-avatar-placeholder">
+                      <div className="friends-user-avatar-placeholder">
                         {user.username.charAt(0).toUpperCase()}
                       </div>
                     )}
-                    <div className="explore-user-details">
+                    <div className="friends-user-details">
                       <strong>@{user.username}</strong>
                       <p>{user.firstName} {user.lastName}</p>
                     </div>
                   </div>
                   
                   {friendStatus[user.id] ? (
-                    <span className="explore-friend-status">✓ Friends</span>
+                    <span className="friends-friend-status">✓ Friends</span>
                   ) : (
                     <button
                       onClick={() => handleSendRequest(user.id)}
-                      className="explore-add-friend-btn"
+                      className="friends-add-friend-btn"
                     >
                       Add Friend
                     </button>
@@ -235,7 +235,7 @@ const Explore = () => {
           )}
 
           {searchTerm.length >= 2 && searchResults.length === 0 && (
-            <p className="explore-no-results">
+            <p className="friends-no-results">
               No users found matching "{searchTerm}"
             </p>
           )}
@@ -244,44 +244,44 @@ const Explore = () => {
 
       {/* Friend Requests Tab */}
       {activeTab === "requests" && (
-        <div className="explore-content-container">
+        <div className="friends-content-container">
           <h2>Friend Requests</h2>
 
           {friendRequests.length === 0 ? (
-            <p className="explore-no-results">No pending friend requests</p>
+            <p className="friends-no-results">No pending friend requests</p>
           ) : (
             friendRequests.map(request => {
               const fromUser = request.get("fromUser");
               return (
-                <div key={request.id} className="explore-user-card">
-                  <div className="explore-user-info">
+                <div key={request.id} className="friends-user-card">
+                  <div className="friends-user-info">
                     {fromUser.get("profilePicture") ? (
                       <img
                         src={fromUser.get("profilePicture")}
                         alt={fromUser.get("username")}
-                        className="explore-user-avatar"
+                        className="friends-user-avatar"
                       />
                     ) : (
-                      <div className="explore-user-avatar-placeholder">
+                      <div className="friends-user-avatar-placeholder">
                         {fromUser.get("username").charAt(0).toUpperCase()}
                       </div>
                     )}
-                    <div className="explore-user-details">
+                    <div className="friends-user-details">
                       <strong>@{fromUser.get("username")}</strong>
                       <p>{fromUser.get("firstName")} {fromUser.get("lastName")}</p>
                     </div>
                   </div>
 
-                  <div className="explore-request-actions">
+                  <div className="friends-request-actions">
                     <button
                       onClick={() => handleAcceptRequest(request.id)}
-                      className="explore-accept-btn"
+                      className="friends-accept-btn"
                     >
                       ✓ Accept
                     </button>
                     <button
                       onClick={() => handleRejectRequest(request.id)}
-                      className="explore-reject-btn"
+                      className="friends-reject-btn"
                     >
                       ✗ Reject
                     </button>
@@ -295,25 +295,25 @@ const Explore = () => {
 
       {/* Friends List Tab */}
       {activeTab === "friends" && (
-        <div className="explore-content-container">
+        <div className="friends-content-container">
           <h2>My Friends ({friends.length})</h2>
 
           {friends.length === 0 ? (
-            <p className="explore-no-results">
+            <p className="friends-no-results">
               You haven't added any friends yet. Search for users to get started!
             </p>
           ) : (
-            <div className="explore-friends-grid">
+            <div className="friends-friends-grid">
               {friends.map(friend => (
-                <div key={friend.id} className="explore-friend-card">
+                <div key={friend.id} className="friends-friend-card">
                   {friend.profilePicture ? (
                     <img
                       src={friend.profilePicture}
                       alt={friend.username}
-                      className="explore-friend-avatar"
+                      className="friends-friend-avatar"
                     />
                   ) : (
-                    <div className="explore-friend-avatar-placeholder">
+                    <div className="friends-friend-avatar-placeholder">
                       {friend.username.charAt(0).toUpperCase()}
                     </div>
                   )}
@@ -321,7 +321,7 @@ const Explore = () => {
                   <p>{friend.firstName} {friend.lastName}</p>
                   <button
                     onClick={() => handleRemoveFriend(friend.id)}
-                    className="explore-remove-friend-btn"
+                    className="friends-remove-friend-btn"
                   >
                     Remove Friend
                   </button>
@@ -335,4 +335,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default Friends;

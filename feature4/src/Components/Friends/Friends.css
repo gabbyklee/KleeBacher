@@ -1,7 +1,7 @@
 /* Explore Page Styles */
 
 /* Unauthenticated User Section */
-.explore-login-prompt {
+.friends-login-prompt {
     max-width: 600px;
     margin: 40px auto;
     background-color: rgba(255, 255, 255, 0.95);
@@ -10,24 +10,24 @@
     text-align: center;
   }
   
-  .explore-login-prompt h2 {
+  .friends-login-prompt h2 {
     margin-top: 0;
     color: #333;
   }
   
-  .explore-login-prompt p {
+  .friends-login-prompt p {
     color: #666;
     font-size: 18px;
     margin-bottom: 30px;
   }
   
-  .explore-login-buttons {
+  .friends-login-buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
   }
   
-  .explore-login-btn {
+  .friends-login-btn {
     padding: 12px 30px;
     color: white;
     border: none;
@@ -37,23 +37,23 @@
     font-weight: bold;
   }
   
-  .explore-login-btn.login {
+  .friends-login-btn.login {
     background-color: #007bff;
   }
   
-  .explore-login-btn.register {
+  .friends-login-btn.register {
     background-color: #28a745;
   }
   
   /* Tab Navigation */
-  .explore-tabs {
+  .friends-tabs {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-bottom: 30px;
   }
   
-  .explore-tab-btn {
+  .friends-tab-btn {
     padding: 12px 30px;
     color: white;
     border: none;
@@ -64,15 +64,15 @@
     position: relative;
   }
   
-  .explore-tab-btn.active {
+  .friends-tab-btn.active {
     background-color: #007bff;
   }
   
-  .explore-tab-btn.inactive {
+  .friends-tab-btn.inactive {
     background-color: #6c757d;
   }
   
-  .explore-tab-badge {
+  .friends-tab-badge {
     position: absolute;
     top: -5px;
     right: -5px;
@@ -89,7 +89,7 @@
   }
   
   /* Content Container */
-  .explore-content-container {
+  .friends-content-container {
     max-width: 800px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.95);
@@ -97,12 +97,12 @@
     border-radius: 12px;
   }
   
-  .explore-content-container h2 {
+  .friends-content-container h2 {
     margin-top: 0;
   }
   
   /* Search Input */
-  .explore-search-input {
+  .friends-search-input {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -112,7 +112,7 @@
   }
   
   /* User Card */
-  .explore-user-card {
+  .friends-user-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,20 +122,20 @@
     margin-bottom: 10px;
   }
   
-  .explore-user-info {
+  .friends-user-info {
     display: flex;
     align-items: center;
     gap: 15px;
   }
   
-  .explore-user-avatar {
+  .friends-user-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
   }
   
-  .explore-user-avatar-placeholder {
+  .friends-user-avatar-placeholder {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -148,18 +148,18 @@
     font-size: 20px;
   }
   
-  .explore-user-details strong {
+  .friends-user-details strong {
     font-size: 16px;
   }
   
-  .explore-user-details p {
+  .friends-user-details p {
     margin: 5px 0 0 0;
     color: #666;
     font-size: 14px;
   }
   
   /* Buttons */
-  .explore-friend-status {
+  .friends-friend-status {
     padding: 8px 16px;
     background-color: #28a745;
     color: white;
@@ -167,7 +167,7 @@
     font-size: 14px;
   }
   
-  .explore-add-friend-btn {
+  .friends-add-friend-btn {
     padding: 8px 16px;
     background-color: #007bff;
     color: white;
@@ -176,12 +176,12 @@
     cursor: pointer;
   }
   
-  .explore-request-actions {
+  .friends-request-actions {
     display: flex;
     gap: 10px;
   }
   
-  .explore-accept-btn {
+  .friends-accept-btn {
     padding: 8px 16px;
     background-color: #28a745;
     color: white;
@@ -190,7 +190,7 @@
     cursor: pointer;
   }
   
-  .explore-reject-btn {
+  .friends-reject-btn {
     padding: 8px 16px;
     background-color: #dc3545;
     color: white;
@@ -200,27 +200,27 @@
   }
   
   /* No Results Message */
-  .explore-no-results {
+  .friends-no-results {
     text-align: center;
     color: #666;
     padding: 40px;
   }
   
   /* Friends Grid */
-  .explore-friends-grid {
+  .friends-friends-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
   }
   
-  .explore-friend-card {
+  .friends-friend-card {
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
     text-align: center;
   }
   
-  .explore-friend-avatar {
+  .friends-friend-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -228,7 +228,7 @@
     margin-bottom: 10px;
   }
   
-  .explore-friend-avatar-placeholder {
+  .friends-friend-avatar-placeholder {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -242,19 +242,19 @@
     margin: 0 auto 10px auto;
   }
   
-  .explore-friend-card strong {
+  .friends-friend-card strong {
     display: block;
     font-size: 16px;
     margin-bottom: 5px;
   }
   
-  .explore-friend-card p {
+  .friends-friend-card p {
     margin: 5px 0;
     color: #666;
     font-size: 14px;
   }
   
-  .explore-remove-friend-btn {
+  .friends-remove-friend-btn {
     margin-top: 10px;
     padding: 6px 12px;
     background-color: #dc3545;

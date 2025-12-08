@@ -3,7 +3,6 @@ import { checkUser } from '../../Auth/AuthService';
 import { useEffect, useState } from 'react';
 import Parse from 'parse';
 
-// routing with react links
 const Nav = () => {
   const navigate = useNavigate();
   const isAuthenticated = checkUser();
@@ -36,37 +35,20 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+      <div className="navbar-left">
         <Link to="/" className="logo">Literary Lounge</Link>
         
         {/* User Info - Left side of navbar */}
         {isAuthenticated && currentUser && (
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            padding: '5px 15px',
-            backgroundColor: 'rgba(42, 82, 152, 0.1)',
-            borderRadius: '20px'
-          }}>
+          <div className="navbar-user-info">
             {currentUser.profilePicture && (
               <img
                 src={currentUser.profilePicture}
                 alt="Profile"
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  border: '2px solid #2a5298'
-                }}
+                className="navbar-user-avatar"
               />
             )}
-            <span style={{
-              color: '#2a5298',
-              fontWeight: '600',
-              fontSize: '14px'
-            }}>
+            <span className="navbar-username">
               @{currentUser.username}
             </span>
           </div>
@@ -75,33 +57,13 @@ const Nav = () => {
       
       <ul className="navigation">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/explore">Explore</Link></li>
+        <li><Link to="/friends">Friends</Link></li>
         
         {isAuthenticated ? (
           <>
             <li><Link to="/profile">Profile</Link></li>
             <li>
-              <button 
-                onClick={handleLogout}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#555',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '8px',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = '#2a5298';
-                  e.target.style.backgroundColor = 'rgba(42, 82, 152, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = '#555';
-                  e.target.style.backgroundColor = 'transparent';
-                }}
-              >
+              <button onClick={handleLogout} className="navbar-logout-btn">
                 Logout
               </button>
             </li>
