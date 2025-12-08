@@ -3,6 +3,7 @@ import ReviewList from "../Reviews/ReviewList";
 import ReviewForm from "../Reviews/ReviewForm";
 import ReviewRating from "../Reviews/ReviewRating";
 import { getReviewsForBook } from "../Reviews/ReviewService";
+import "./BookQuickView.css";
 
 const BookQuickView = ({ book, onClose }) => {
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -31,101 +32,51 @@ const BookQuickView = ({ book, onClose }) => {
     };
     
     fetchRating();
-  }, [book, refreshReviews]); // Recalculate when reviews refresh
+  }, [book, refreshReviews]);
   
   const handleReviewSubmitted = () => {
     setShowReviewForm(false);
-    setRefreshReviews(prev => prev + 1); // Trigger review list refresh
+    setRefreshReviews(prev => prev + 1);
   };
   
   if (!book) return null;
   
   return (
-    <div 
-      className="modal-overlay" 
-      onClick={onClose}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 1000
-      }}
-    >
-      <div 
-        className="modal-content"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-        style={{
-          backgroundColor: "white",
-          borderRadius: "12px",
-          maxWidth: "800px",
-          maxHeight: "90vh",
-          width: "90%",
-          overflow: "auto",
-          position: "relative",
-          padding: "20px"
-        }}
-      >
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
-        <button 
-          onClick={onClose}
-          style={{
-            position: "absolute",
-            top: "15px",
-            right: "15px",
-            background: "none",
-            border: "none",
-            fontSize: "24px",
-            cursor: "pointer",
-            color: "#666"
-          }}
-        >
+        <button onClick={onClose} className="modal-close-btn">
           ×
         </button>
         
         {/* Book Info Section */}
-        <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+        <div className="book-info-section">
           {/* Book Cover */}
-          <div style={{ flexShrink: 0 }}>
+          <div className="book-cover-container">
             <img 
               src={book.imageURL || "https://via.placeholder.com/128x192?text=No+Cover"} 
               alt={book.title}
-              style={{ 
-                width: "128px",
-                borderRadius: "8px",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-              }}
+              className="book-cover-image"
             />
           </div>
           
           {/* Book Details */}
-          <div style={{ flex: 1 }}>
-            <h2 style={{ marginTop: 0 }}>{book.title}</h2>
-            <p style={{ color: "#666", fontSize: "16px" }}>
-              by {book.author}
-            </p>
+          <div className="book-details-container">
+            <h2>{book.title}</h2>
+            <p className="book-author-text">by {book.author}</p>
             
             {/* Genre */}
             {book.genre && (
-              <p style={{ 
-                color: "#007bff", 
-                fontSize: "14px",
-                fontWeight: "500" 
-              }}>
-                {book.genre}
-              </p>
+              <p className="book-genre-text">{book.genre}</p>
             )}
             
             {/* Average Rating */}
-            <div style={{ marginTop: "10px" }}>
+            <div className="book-average-rating">
               <ReviewRating rating={Math.round(averageRating)} readOnly={true} />
-              <span style={{ marginLeft: "10px", color: "#666" }}>
-                {averageRating > 0 ? `${averageRating.toFixed(1)} stars (${reviewCount} ${reviewCount === 1 ? 'review' : 'reviews'})` : "No ratings yet"}
+              <span className="book-rating-text">
+                {averageRating > 0 
+                  ? `${averageRating.toFixed(1)} stars (${reviewCount} ${reviewCount === 1 ? 'review' : 'reviews'})` 
+                  : "No ratings yet"}
               </span>
             </div>
           </div>
@@ -133,47 +84,30 @@ const BookQuickView = ({ book, onClose }) => {
         
         {/* Book Description */}
         {(book.description || book.volumeInfo?.description) && (
-          <div style={{ marginBottom: "20px" }}>
+          <div className="book-description-section">
             <h3>Summary</h3>
-            <p style={{ lineHeight: "1.6" }}>
-              {book.description || book.volumeInfo?.description}
-            </p>
+            <p>{book.description || book.volumeInfo?.description}</p>
           </div>
         )}
         
         {/* Write Review Button */}
-        <div style={{ marginBottom: "20px" }}>
+        <div className="write-review-section">
           {!showReviewForm ? (
             <button 
               onClick={() => setShowReviewForm(true)}
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#007bff",
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer"
-              }}
+              className="write-review-btn"
             >
               Write a Review
             </button>
           ) : (
-            <div>
+            <div className="review-form-container">
               <ReviewForm 
                 book={book} 
                 onReviewSubmitted={handleReviewSubmitted}
               />
               <button 
                 onClick={() => setShowReviewForm(false)}
-                style={{
-                  marginTop: "10px",
-                  padding: "8px 16px",
-                  backgroundColor: "#6c757d",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer"
-                }}
+                className="cancel-review-btn"
               >
                 Cancel
               </button>
@@ -182,11 +116,11 @@ const BookQuickView = ({ book, onClose }) => {
         </div>
         
         {/* Reviews Section */}
-        <div>
+        <div className="reviews-section">
           <ReviewList 
             bookId={book.id} 
             showPopularOnly={true}
-            key={refreshReviews} // Force re-render when new review added
+            key={refreshReviews}
           />
         </div>
       </div>

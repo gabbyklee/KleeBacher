@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
 import { getReviewsForBook, getPopularReviewsForBook } from "./ReviewService";
+import "./ReviewList.css";
 
 const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) => {
   const [reviews, setReviews] = useState([]);
@@ -77,23 +78,15 @@ const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) =>
   
   return (
     <div className="review-list">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-        <h3 style={{ margin: 0 }}>
+      <div className="review-list-header">
+        <h3>
           {showingAll ? `All Reviews (${reviews.length})` : `Top ${topReviewsLimit} Popular Reviews`}
         </h3>
         
         {!showingAll && reviews.length >= topReviewsLimit && (
           <button
             onClick={handleViewAll}
-            style={{
-              padding: "8px 16px",
-              backgroundColor: "#28a745",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-              fontSize: "14px"
-            }}
+            className="review-list-view-btn view-all"
           >
             View All Reviews
           </button>
@@ -102,15 +95,7 @@ const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) =>
         {showingAll && showPopularOnly && (
           <button
             onClick={handleViewPopular}
-            style={{
-              padding: "8px 16px",
-              backgroundColor: "#6c757d",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-              fontSize: "14px"
-            }}
+            className="review-list-view-btn view-popular"
           >
             View Popular Only
           </button>
@@ -127,43 +112,23 @@ const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) =>
       
       {/* Pagination Controls */}
       {showingAll && totalPages > 1 && (
-        <div style={{ 
-          display: "flex", 
-          justifyContent: "center", 
-          alignItems: "center", 
-          gap: "15px",
-          marginTop: "20px" 
-        }}>
+        <div className="review-list-pagination">
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-            style={{
-              padding: "8px 16px",
-              backgroundColor: currentPage === 1 ? "#ccc" : "#007bff",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: currentPage === 1 ? "not-allowed" : "pointer"
-            }}
+            className={`review-list-pagination-btn ${currentPage === 1 ? "disabled" : "active"}`}
           >
             Previous
           </button>
           
-          <span style={{ color: "#666" }}>
+          <span className="review-list-pagination-info">
             Page {currentPage} of {totalPages}
           </span>
           
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            style={{
-              padding: "8px 16px",
-              backgroundColor: currentPage === totalPages ? "#ccc" : "#007bff",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: currentPage === totalPages ? "not-allowed" : "pointer"
-            }}
+            className={`review-list-pagination-btn ${currentPage === totalPages ? "disabled" : "active"}`}
           >
             Next
           </button>

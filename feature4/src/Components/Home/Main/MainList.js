@@ -80,7 +80,6 @@ const MainList = ({ fbooks }) => {
               key={book.id} 
               className="book-card"
               onClick={() => handleBookClick(book)}
-              style={{ cursor: 'pointer' }}
             >
               <div className="book-cover">
                 {book.imageURL ? (
@@ -103,22 +102,13 @@ const MainList = ({ fbooks }) => {
               
               {/* Rating Display */}
               {rating && (
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "center", 
-                  justifyContent: "center",
-                  marginTop: "8px",
-                  gap: "5px"
-                }}>
+                <div className="book-rating-display">
                   <ReviewRating 
                     rating={Math.round(rating.average)} 
                     readOnly={true} 
                   />
                   {rating.count > 0 && (
-                    <span style={{ 
-                      fontSize: "12px", 
-                      color: "#666" 
-                    }}>
+                    <span className="book-rating-count">
                       ({rating.count})
                     </span>
                   )}

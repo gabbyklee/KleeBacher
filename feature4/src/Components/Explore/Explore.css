@@ -1,0 +1,266 @@
+/* Explore Page Styles */
+
+/* Unauthenticated User Section */
+.explore-login-prompt {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .explore-login-prompt h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .explore-login-prompt p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .explore-login-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .explore-login-btn {
+    padding: 12px 30px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .explore-login-btn.login {
+    background-color: #007bff;
+  }
+  
+  .explore-login-btn.register {
+    background-color: #28a745;
+  }
+  
+  /* Tab Navigation */
+  .explore-tabs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .explore-tab-btn {
+    padding: 12px 30px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .explore-tab-btn.active {
+    background-color: #007bff;
+  }
+  
+  .explore-tab-btn.inactive {
+    background-color: #6c757d;
+  }
+  
+  .explore-tab-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Content Container */
+  .explore-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+  }
+  
+  .explore-content-container h2 {
+    margin-top: 0;
+  }
+  
+  /* Search Input */
+  .explore-search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* User Card */
+  .explore-user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .explore-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .explore-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .explore-user-avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .explore-user-details strong {
+    font-size: 16px;
+  }
+  
+  .explore-user-details p {
+    margin: 5px 0 0 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Buttons */
+  .explore-friend-status {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .explore-add-friend-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .explore-request-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .explore-accept-btn {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .explore-reject-btn {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* No Results Message */
+  .explore-no-results {
+    text-align: center;
+    color: #666;
+    padding: 40px;
+  }
+  
+  /* Friends Grid */
+  .explore-friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .explore-friend-card {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .explore-friend-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .explore-friend-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0 auto 10px auto;
+  }
+  
+  .explore-friend-card strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .explore-friend-card p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .explore-remove-friend-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+  }
