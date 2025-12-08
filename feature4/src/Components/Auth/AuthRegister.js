@@ -9,12 +9,12 @@ const AuthRegister = () => {
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
+    username: "",
     email: "",
     password: ""
   });
 
-  // flags in the state to watch for add/remove updates
-  const [add, setAdd] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // redirect already authenticated users back to home
   useEffect(() => {
@@ -24,27 +24,9 @@ const AuthRegister = () => {
     }
   }, [navigate]);
 
-  // useEffect that run when changes are made to the state variable flags
-  useEffect(() => {
-    // checkUser() ? history.push("/home"): null;
-    if (newUser && add) {
-      createUser(newUser).then((userCreated) => {
-        if (userCreated) {
-          alert(
-            `${userCreated.get("firstName")}, you successfully registered!`
-          );
-          navigate("/");
-        }
-        setAdd(false);
-      });
-    }
-  }, [navigate, newUser, add]);
-
   const onChangeHandler = (e) => {
     e.preventDefault();
-    console.log(e.target);
     const { name, value: newValue } = e.target;
-    console.log(newValue);
 
     setNewUser({
       ...newUser,
@@ -52,10 +34,27 @@ const AuthRegister = () => {
     });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log("submitted: ", e.target);
-    setAdd(true);
+    
+    if (isSubmitting) return; // Prevent double submission
+    
+    setIsSubmitting(true);
+    
+    try {
+      const userCreated = await createUser(newUser);
+      if (userCreated) {
+        alert(
+          `Welcome ${userCreated.get("username")}! You successfully registered!`
+        );
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      // Error already shown in createUser
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

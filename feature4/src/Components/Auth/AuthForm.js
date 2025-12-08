@@ -17,7 +17,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.firstName}
                 onChange={onChange}
                 name="firstName"
-                placeholder="first name"
+                placeholder="First name"
                 required
                 />
             </div>
@@ -31,10 +31,31 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.lastName}
                 onChange={onChange}
                 name="lastName"
-                placeholder="last name"
+                placeholder="Last name"
                 required
                 />
-            </div>{" "}
+            </div>
+            <div className="form-group">
+                <label>Username</label>
+                <br />
+                <input
+                type="text"
+                className="form-control"
+                id="username-input"
+                value={user.username || ""}
+                onChange={onChange}
+                name="username"
+                placeholder="Choose a unique username"
+                required
+                minLength="3"
+                maxLength="20"
+                pattern="[a-zA-Z0-9_]+"
+                title="Username must be 3-20 characters, letters, numbers, and underscores only"
+                />
+                <small style={{ color: "#666", fontSize: "12px" }}>
+                  3-20 characters, letters, numbers, and underscores only
+                </small>
+            </div>
             </div>
         ) : (
             <></>
@@ -50,6 +71,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.email}
                 onChange={onChange}
                 name="email"
+                placeholder="Email address"
                 required
             />
             </div>{" "}
@@ -63,7 +85,8 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.password}
                 onChange={onChange}
                 name="password"
-                min="0"
+                placeholder="Password"
+                minLength="6"
                 required
             />
             </div>

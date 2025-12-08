@@ -1,0 +1,127 @@
+/* Profile Settings Component Styles */
+
+.profile-settings-edit-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .profile-settings-edit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .profile-settings-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-settings-form h3 {
+    margin-top: 0;
+  }
+  
+  .profile-settings-field {
+    margin-bottom: 15px;
+  }
+  
+  .profile-settings-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .profile-settings-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .profile-settings-help-text {
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .profile-settings-checkbox-container {
+    margin-bottom: 20px;
+  }
+  
+  .profile-settings-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .profile-settings-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  .profile-settings-checkbox-text {
+    font-weight: 500;
+  }
+  
+  .profile-settings-checkbox-help {
+    color: #666;
+    font-size: 12px;
+    margin-left: 28px;
+  }
+  
+  .profile-settings-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .profile-settings-save-btn {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .profile-settings-save-btn.enabled {
+    background-color: #28a745;
+    cursor: pointer;
+  }
+  
+  .profile-settings-save-btn.enabled:hover {
+    background-color: #218838;
+  }
+  
+  .profile-settings-save-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .profile-settings-cancel-btn {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .profile-settings-cancel-btn.enabled {
+    cursor: pointer;
+  }
+  
+  .profile-settings-cancel-btn.enabled:hover {
+    background-color: #5a6268;
+  }
+  
+  .profile-settings-cancel-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }

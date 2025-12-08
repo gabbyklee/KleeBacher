@@ -1,6 +1,7 @@
 import Home from "./Home/Home";
 import Explore from "./Explore/Explore";
 import BookClub from "./BookClub/BookClub";
+import Friends from "./Friends/Friends";
 import Profile from "./Profile/Profile";
 import Nav from "./Shared/Nav/Nav";
 import AuthModule from "./Auth/Auth";
@@ -17,7 +18,7 @@ export default function Components() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />  
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/friends" element={<Friends />} />
         
         {/* Auth pages */}
         <Route path="/auth" element={<AuthModule />} />
