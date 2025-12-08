@@ -7,8 +7,15 @@
 body {
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   color: #333;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh; /* <-- FIX: Ensure the React mount point takes full height */
+  display: flex; /* Optional: useful if your root contains the navbar and main content */
+  flex-direction: column; 
 }
 
 /* Navigation Bar */
@@ -20,6 +27,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px; /* ASSUMPTION: Give the navbar a fixed height for calculation */
   position: sticky;
   top: 0;
   z-index: 100;

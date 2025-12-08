@@ -1,4 +1,6 @@
 import Home from "./Home/Home";
+import Explore from "./Explore/Explore";
+import BookClub from "./BookClub/BookClub";
 import Friends from "./Friends/Friends";
 import Profile from "./Profile/Profile";
 import Nav from "./Shared/Nav/Nav";
@@ -24,6 +26,7 @@ export default function Components() {
         <Route path="/auth/login" element={<AuthLogin />} />
         
         {/* Protected Routes */}
+        <Route path="/bookclub" element={<ProtectedRoute element={BookClub} />} />
         <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
         
         {/* Redirect to home */}

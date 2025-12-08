@@ -7,6 +7,8 @@ import * as Env from "./environments";
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
 
+Parse.liveQueryServerURL = Env.LIVE_QUERY_SERVER_URL;
+
 function App() {
   return <Components />;
 }
