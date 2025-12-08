@@ -1,0 +1,73 @@
+/* Review List Styles */
+  
+  /* Header Section */
+  .review-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .review-list-header h3 {
+    margin: 0;
+  }
+  
+  /* Toggle Buttons */
+  .review-list-view-btn {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .review-list-view-btn.view-all {
+    background-color: #28a745;
+  }
+  
+  .review-list-view-btn.view-all:hover {
+    background-color: #218838;
+  }
+  
+  .review-list-view-btn.view-popular {
+    background-color: #6c757d;
+  }
+  
+  .review-list-view-btn.view-popular:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Pagination Controls */
+  .review-list-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .review-list-pagination-btn {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .review-list-pagination-btn.active {
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  
+  .review-list-pagination-btn.active:hover {
+    background-color: #0056b3;
+  }
+  
+  .review-list-pagination-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .review-list-pagination-info {
+    color: #666;
+  }
