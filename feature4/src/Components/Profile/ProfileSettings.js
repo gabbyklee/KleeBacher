@@ -89,7 +89,7 @@ const ProfileSettings = ({ user, onProfileUpdate }) => {
         onClick={() => setIsEditing(true)}
         className="profile-settings-edit-btn"
       >
-        ✏️ Edit Profile
+        Edit Profile
       </button>
     );
   }
@@ -156,7 +156,7 @@ const ProfileSettings = ({ user, onProfileUpdate }) => {
           disabled={isSaving}
           className={`profile-settings-save-btn ${isSaving ? "disabled" : "enabled"}`}
         >
-          {isSaving ? "Saving..." : "💾 Save Changes"}
+          {isSaving ? "Saving..." : "Save Changes"}
         </button>
         <button
           onClick={handleCancel}

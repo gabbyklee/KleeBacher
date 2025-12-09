@@ -19,21 +19,18 @@ const Friends = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [friendRequests, setFriendRequests] = useState([]);
   const [friends, setFriends] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("search");
   const [friendStatus, setFriendStatus] = useState({});
 
   useEffect(() => {
     const currentUser = Parse.User.current();
     if (!currentUser || !currentUser.authenticated) {
-      setLoading(false);
       return;
     }
     loadData();
   }, []);
 
   const loadData = async () => {
-    setLoading(true);
     try {
       const [requests, friendsList] = await Promise.all([
         getPendingFriendRequests(),
@@ -43,8 +40,6 @@ const Friends = () => {
       setFriends(friendsList);
     } catch (error) {
       console.error("Error loading data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -118,14 +113,6 @@ const Friends = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="main-content" style={{ textAlign: "center", color: "white" }}>
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
-
   const currentUser = Parse.User.current();
   if (!currentUser || !currentUser.authenticated) {
     return (
@@ -165,13 +152,13 @@ const Friends = () => {
           onClick={() => setActiveTab("search")}
           className={`friends-tab-btn ${activeTab === "search" ? "active" : "inactive"}`}
         >
-          🔍 Search Users
+          Search Users
         </button>
         <button
           onClick={() => setActiveTab("requests")}
           className={`friends-tab-btn ${activeTab === "requests" ? "active" : "inactive"}`}
         >
-          📬 Requests
+          Requests
           {friendRequests.length > 0 && (
             <span className="friends-tab-badge">{friendRequests.length}</span>
           )}
@@ -180,7 +167,7 @@ const Friends = () => {
           onClick={() => setActiveTab("friends")}
           className={`friends-tab-btn ${activeTab === "friends" ? "active" : "inactive"}`}
         >
-          👥 My Friends ({friends.length})
+          My Friends ({friends.length})
         </button>
       </div>
 
