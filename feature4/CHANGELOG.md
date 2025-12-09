@@ -4,13 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [0.6.0] - 2025-12-08
 
-### Added (Kylie)
+### Added 
 - Book Club feature with real-time chat using Parse Live Query
 - Personal book lists: Wishlist and Read List
 - Book recommendations based on user's reading history
 - BookClub, Message, UserClubs, WishlistBook, and ReadBook Parse classes
-
-### Added (Gabby)
 - Friends system with search, friend requests, and friends list
 - FriendService for friend management operations
 - FriendRequest and Friendship Parse classes
