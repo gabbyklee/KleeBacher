@@ -133,14 +133,7 @@ const SearchAndFilter = ({ books, onFilteredBooksChange }) => {
           </button>
         </div>
 
-        {/* Results Count */}
-        {(searchTerm || selectedGenre !== "all") && (
-          <p className="search-results-text">
-            Showing {books.length} results
-            {searchTerm && ` for "${searchTerm}"`}
-            {selectedGenre !== "all" && ` in ${selectedGenre}`}
-          </p>
-        )}
+        
       </div>
     </div>
   );

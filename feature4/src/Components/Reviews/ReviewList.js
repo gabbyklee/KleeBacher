@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ReviewCard from "./ReviewCard";
 import { getReviewsForBook, getPopularReviewsForBook } from "../../Common/Services/ReviewService";
 import "./ReviewList.css";
@@ -10,11 +10,7 @@ const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) =>
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
   
-  useEffect(() => {
-    fetchReviews();
-  }, [bookId, showPopularOnly, showingAll]);
-  
-  const fetchReviews = async () => {
+  const fetchReviews = useCallback(async () => {
     setLoading(true);
     try {
       if (showPopularOnly && !showingAll) {
@@ -31,7 +27,11 @@ const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) =>
     } finally {
       setLoading(false);
     }
-  };
+  }, [bookId, showPopularOnly, showingAll, topReviewsLimit]); // Add dependencies here
+
+  useEffect(() => {
+    fetchReviews();
+  }, [fetchReviews]); // Now only depend on fetchReviews
   
   const handleLikeUpdate = () => {
     // Refresh reviews to update sorting

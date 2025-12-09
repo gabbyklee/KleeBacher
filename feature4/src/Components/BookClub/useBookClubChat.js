@@ -35,8 +35,6 @@ export const useBookClubChat = (selectedClubId, currentUser) => {
 
     const fetchInitialMessages = async () => {
         const messagesQuery = new Parse.Query("Message")
-        // NOTE: Assuming your 'clubId' column is a String or Pointer ID on the Message class.
-        // If 'clubId' is a Pointer to the BookClub object, you must use .equalTo('clubId', clubPointerObject)
         messagesQuery.equalTo("clubId", selectedClubId) 
         messagesQuery.ascending("createdAt")
         messagesQuery.limit(100)
