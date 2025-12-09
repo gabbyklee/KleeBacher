@@ -75,6 +75,7 @@ const Main = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // takes a while to load from Google API so show loading message instead of spazzing
   if (loading) {
     return (
       <div className="main-content" style={{ textAlign: 'center', color: 'white' }}>
@@ -98,7 +99,7 @@ const Main = () => {
             marginBottom: '20px',
             textAlign: 'center' 
           }}>
-            🔥 Most Popular Books This Week
+            Most Popular Books This Week
           </h2>
           <div style={{
             display: 'grid',

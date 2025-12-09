@@ -1,5 +1,4 @@
 import Home from "./Home/Home";
-import Explore from "./Explore/Explore";
 import BookClub from "./BookClub/BookClub";
 import Friends from "./Friends/Friends";
 import Profile from "./Profile/Profile";
