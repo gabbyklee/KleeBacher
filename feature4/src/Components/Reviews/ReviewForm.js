@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReviewRating from "./ReviewRating";
-import { createReview } from "./ReviewService";
+import { createReview } from "../../Common/Services/ReviewService";
 
 const ReviewForm = ({ book, onReviewSubmitted }) => {
   const [rating, setRating] = useState(0);

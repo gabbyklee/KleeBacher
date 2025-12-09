@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReviewRating from "./ReviewRating";
-import { likeReview } from "./ReviewService";
+import { likeReview } from "../../Common/Services/ReviewService";
 
 const ReviewCard = ({ review, onLikeUpdate }) => {
   const user = review.get("user");

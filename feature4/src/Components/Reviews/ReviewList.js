@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
-import { getReviewsForBook, getPopularReviewsForBook } from "./ReviewService";
+import { getReviewsForBook, getPopularReviewsForBook } from "../../Common/Services/ReviewService";
 import "./ReviewList.css";
 
 const ReviewList = ({ bookId, showPopularOnly = false, topReviewsLimit = 3 }) => {

@@ -21,6 +21,9 @@ class UserBookListService {
         bookData.volumeInfo?.imageLinks?.thumbnail || bookData.volumeInfo?.imageLinks?.smallThumbnail || "",
       )
       readBook.set("description", bookData.volumeInfo?.description || "")
+      // Store genre/categories for recommendations
+      readBook.set("genre", bookData.volumeInfo?.categories?.join(", ") || "General")
+      readBook.set("categories", bookData.volumeInfo?.categories || [])
 
       const result = await readBook.save()
       console.log("Book added to read list:", result)
@@ -51,6 +54,9 @@ class UserBookListService {
         bookData.volumeInfo?.imageLinks?.thumbnail || bookData.volumeInfo?.imageLinks?.smallThumbnail || "",
       )
       wishlistBook.set("description", bookData.volumeInfo?.description || "")
+      // Store genre/categories
+      wishlistBook.set("genre", bookData.volumeInfo?.categories?.join(", ") || "General")
+      wishlistBook.set("categories", bookData.volumeInfo?.categories || [])
 
       const result = await wishlistBook.save()
       console.log("Book added to wishlist:", result)
@@ -131,6 +137,8 @@ class UserBookListService {
         author: book.get("author"),
         coverImage: book.get("coverImage"),
         description: book.get("description"),
+        genre: book.get("genre"),
+        categories: book.get("categories") || [],
         addedAt: book.get("createdAt"),
       }))
     } catch (error) {
@@ -159,6 +167,8 @@ class UserBookListService {
         author: book.get("author"),
         coverImage: book.get("coverImage"),
         description: book.get("description"),
+        genre: book.get("genre"),
+        categories: book.get("categories") || [],
         addedAt: book.get("createdAt"),
       }))
     } catch (error) {

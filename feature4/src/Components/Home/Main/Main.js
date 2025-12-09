@@ -218,7 +218,7 @@ const Main = () => {
                     disabled={currentPage === 1}
                     style={{
                       padding: '10px 20px',
-                      backgroundColor: currentPage === 1 ? '#ccc' : '#007bff',
+                      backgroundColor: currentPage === 1 ? '#ccc' : '#4a5f8f',
                       color: 'white',
                       border: 'none',
                       borderRadius: '5px',
@@ -245,8 +245,8 @@ const Main = () => {
                             onClick={() => handlePageClick(pageNum)}
                             style={{
                               padding: '10px 15px',
-                              backgroundColor: currentPage === pageNum ? '#007bff' : '#6c757d',
-                              color: 'white',
+                              backgroundColor: currentPage === pageNum ? '#4a5f8f' : 'white',
+                              color: currentPage === pageNum ? 'white' : '#4a5f8f',
                               border: 'none',
                               borderRadius: '5px',
                               cursor: 'pointer',
@@ -272,7 +272,7 @@ const Main = () => {
                     disabled={currentPage === totalPages}
                     style={{
                       padding: '10px 20px',
-                      backgroundColor: currentPage === totalPages ? '#ccc' : '#007bff',
+                      backgroundColor: currentPage === totalPages ? '#ccc' : '#4a5f8f',
                       color: 'white',
                       border: 'none',
                       borderRadius: '5px',

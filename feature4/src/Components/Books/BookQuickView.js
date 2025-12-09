@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReviewList from "../Reviews/ReviewList";
 import ReviewForm from "../Reviews/ReviewForm";
 import ReviewRating from "../Reviews/ReviewRating";
-import { getReviewsForBook } from "../Reviews/ReviewService";
+import { getReviewsForBook } from "../../Common/Services/ReviewService";
 import "./BookQuickView.css";
 
 const BookQuickView = ({ book, onClose }) => {
