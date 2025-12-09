@@ -38,7 +38,7 @@
   }
   
   .friends-login-btn.login {
-    background-color: #007bff;
+    background-color: #4a5f8f;
   }
   
   .friends-login-btn.register {
@@ -48,28 +48,34 @@
   /* Tab Navigation */
   .friends-tabs {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 30px;
+    gap: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
   }
   
   .friends-tab-btn {
-    padding: 12px 30px;
-    color: white;
+    flex: 1;
+    padding: 16px 24px;
+    background-color: #4a5f8f;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
-    position: relative;
+    color: white;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+  }
+
+  .friends-tab-btn:hover {
+    background-color: #5a6f9f;
   }
   
   .friends-tab-btn.active {
-    background-color: #007bff;
-  }
-  
-  .friends-tab-btn.inactive {
-    background-color: #6c757d;
+    background-color: #f8f9fa;
+    color: #2a5298;
+    border-bottom-color: #2a5298;
   }
   
   .friends-tab-badge {
@@ -94,7 +100,8 @@
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
-    border-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
   }
   
   .friends-content-container h2 {

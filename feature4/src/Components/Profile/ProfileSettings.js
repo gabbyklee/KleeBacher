@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Parse from "parse";
 import { updateUserProfile } from "../Auth/AuthService";
 import "./ProfileSettings.css";
 
